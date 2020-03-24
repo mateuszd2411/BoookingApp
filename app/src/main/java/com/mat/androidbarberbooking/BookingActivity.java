@@ -107,6 +107,8 @@ public class BookingActivity extends AppCompatActivity {
                             Intent intent = new Intent(Common.KEY_BARBER_LOAD_DONE);
                             intent.putParcelableArrayListExtra(Common.KEY_BARBER_LOAD_DONE,barbers);
                             localBroadcastManager.sendBroadcast(intent);
+
+                            dialog.dismiss();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

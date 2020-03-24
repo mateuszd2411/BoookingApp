@@ -16,6 +16,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mat.androidbarberbooking.Adapter.MyBarberAdapter;
 import com.mat.androidbarberbooking.Common.Common;
 import com.mat.androidbarberbooking.Common.SpacesItemDecoration;
 import com.mat.androidbarberbooking.Model.Barber;
@@ -41,6 +42,8 @@ public class BookingStep2Fragment extends Fragment {
             ArrayList<Barber> barberArrayList = intent.getParcelableArrayListExtra(Common.KEY_BARBER_LOAD_DONE);
 
             ///create adapter late
+            MyBarberAdapter adapter = new MyBarberAdapter(getContext(),barberArrayList);
+            recycler_barber.setAdapter(adapter);
         }
     };
 
