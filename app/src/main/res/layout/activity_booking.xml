@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout_button"
         android:orientation="horizontal"
         android:weightSum="2"
@@ -44,11 +44,31 @@
         android:layout_height="wrap_content">
 
 
+<!--        <Button-->
+<!--            android:id="@+id/btn_previous_step"-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_marginStart="4dp"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:layout_marginRight="4dp"-->
+<!--            android:layout_toStartOf="@+id/btn_next_step"-->
+<!--            android:background="@color/colorButton"-->
+<!--            android:enabled="false"-->
+<!--            android:fontFamily="@font/bellerose"-->
+<!--            android:text="Previous"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textFontWeight="1" />-->
+
+
         <Button
             android:id="@+id/btn_previous_step"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="4dp"
+            android:layout_alignParentStart="true"
+
+
+            android:layout_marginStart="8dp"
             android:background="@color/colorButton"
             android:enabled="false"
             android:fontFamily="@font/bellerose"
@@ -60,16 +80,32 @@
             android:id="@+id/btn_next_step"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:background="@color/colorButton"
 
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@+id/btn_previous_step"
+            android:background="@color/colorButton"
             android:fontFamily="@font/bellerose"
             android:text="Next"
             android:textColor="@android:color/white"
             android:textFontWeight="1" />
 
+        <!--        <Button-->
+<!--            android:id="@+id/btn_next_step"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginLeft="4dp"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:background="@color/colorButton"-->
+<!--            android:fontFamily="@font/bellerose"-->
+<!--            android:text="Next"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textFontWeight="1" />-->
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
