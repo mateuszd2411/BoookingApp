@@ -1,17 +1,20 @@
 package com.mat.androidbarberbooking;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.mat.androidbarberbooking.Adapter.MyViewPagerAdapter;
 import com.mat.androidbarberbooking.Common.Common;
+import com.mat.androidbarberbooking.Common.NonSwipeViewPager;
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
@@ -23,10 +26,12 @@ import butterknife.OnClick;
 
 public class BookingActivity extends AppCompatActivity {
 
+    LocalBroadcastManager localBroadcastManager;
+
     @BindView(R.id.step_view)
     StepView stepView;
     @BindView(R.id.view_pager)
-    ViewPager viewPager;
+    NonSwipeViewPager viewPager;
     @BindView(R.id.btn_previous_step)
     Button btn_previous_step;
     @BindView(R.id.btn_next_step)
@@ -44,17 +49,26 @@ public class BookingActivity extends AppCompatActivity {
     private BroadcastReceiver buttonNextReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Common.currentUser = intent.getParcelableExtra(Common.KEY_SALON_STORE);
+            Common.currentSalon = intent.getParcelableExtra(Common.KEY_SALON_STORE);
             btn_next_step.setEnabled(true);
             setColorButton();
         }
     };
 
     @Override
+    protected void onDestroy() {
+        localBroadcastManager.unregisterReceiver(buttonNextReceiver);
+        super.onDestroy();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
         ButterKnife.bind(BookingActivity.this);
+
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        localBroadcastManager.registerReceiver(buttonNextReceiver, new IntentFilter(Common.KEY_ENABLE_BUTTON_NEXT));
 
         setupStepView();
         setColorButton();
