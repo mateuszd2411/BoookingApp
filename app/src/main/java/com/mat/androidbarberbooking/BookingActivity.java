@@ -38,11 +38,32 @@ public class BookingActivity extends AppCompatActivity {
     Button btn_next_step;
 
     //event
+    @OnClick(R.id.btn_previous_step)
+    void previousStep()
+    {
+        if (Common.step == 3 || Common.step > 0)
+        {
+            Common.step--;
+            viewPager.setCurrentItem(Common.step);
+        }
+    }
     @OnClick(R.id.btn_next_step)
     void nextClick(){
-        Toast.makeText(this, ""+Common.currentSalon.getSalonId(), Toast.LENGTH_SHORT).show();
+        if (Common.step < 3 || Common.step == 0)
+        {
+            Common.step++; ///increase
+            if (Common.step == 1) /// after chose salon
+            {
+                if (Common.currentSalon != null)
+                    loadBarberBySalon(Common.currentSalon.getSalonId());
+            }
+            viewPager.setCurrentItem(Common.step);
+        }
     }
 
+    private void loadBarberBySalon(String salonId) {
+
+    }
 
 
     ///broadcast receiver
@@ -75,6 +96,7 @@ public class BookingActivity extends AppCompatActivity {
 
         ///View
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager()));
+        viewPager.setOffscreenPageLimit(4);  /// we have 4 fragments so we need keep state of this 4 screen pages
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {

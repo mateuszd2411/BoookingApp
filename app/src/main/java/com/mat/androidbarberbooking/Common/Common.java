@@ -19,6 +19,7 @@ public class Common {
     public static String IS_LOGIN = "IsLogin";
     public static User currentUser;
     public static Salon currentSalon;
+    public static int step = 0;  // init first step is 0
 
     public static enum TOKEN_TYPE{
         CLIENT,
