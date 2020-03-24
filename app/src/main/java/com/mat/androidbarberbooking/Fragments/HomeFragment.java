@@ -1,6 +1,7 @@
 package com.mat.androidbarberbooking.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.mat.androidbarberbooking.Adapter.HomeSliderAdapter;
 import com.mat.androidbarberbooking.Adapter.LookbookAdapter;
+import com.mat.androidbarberbooking.BookingActivity;
 import com.mat.androidbarberbooking.Common.Common;
+import com.mat.androidbarberbooking.HomeActivity;
 import com.mat.androidbarberbooking.Interface.IBannerLoadListener;
 import com.mat.androidbarberbooking.Interface.ILookbookLoadListener;
 import com.mat.androidbarberbooking.Model.Banner;
@@ -38,6 +41,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import ss.com.bannerslider.Slider;
 
@@ -56,16 +60,18 @@ public class HomeFragment extends Fragment implements ILookbookLoadListener, IBa
     Slider banner_slider;
     @BindView(R.id.recycler_look_book)
     RecyclerView recycler_look_book;
-
+    @OnClick(R.id.card_view_booking)
+    void booking()
+    {
+        startActivity(new Intent(getActivity(), BookingActivity.class));
+    }
 
     ////firestor
     CollectionReference bannerRef, lookbookRef;
 
-
     ///interface
     IBannerLoadListener iBannerLoadListener;
     ILookbookLoadListener iLookbookLoadListener;
-
 
     public HomeFragment() {
         bannerRef = FirebaseFirestore.getInstance().collection("Banner");

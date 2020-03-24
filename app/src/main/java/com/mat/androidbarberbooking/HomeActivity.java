@@ -106,16 +106,15 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             Fragment fragment = null;
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if (menuItem.getItemId() == R.id.action_home)
-                    fragment = new HomeFragment();
-                else if (menuItem.getItemId() == R.id.action_shopping);
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {  //// up down
+                if (menuItem.getItemId() == R.id.action_shopping)
                     fragment = new ShoppingFragment();
+                else if (menuItem.getItemId() == R.id.action_home);
+                    fragment = new HomeFragment();
 
                 return loadFragment(fragment);
             }
         });
-
 
 
     }
