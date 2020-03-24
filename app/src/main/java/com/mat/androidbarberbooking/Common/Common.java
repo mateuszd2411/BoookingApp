@@ -16,10 +16,12 @@ import com.mat.androidbarberbooking.Model.User;
 public class Common {
     public static final String KEY_ENABLE_BUTTON_NEXT = "ENABLE_BUTTON_NEXT";
     public static final String KEY_SALON_STORE = "SALON_SAVE";
+    public static final String KEY_BARBER_LOAD_DONE = "KEY_BARBER_LOAD_DONE";
     public static String IS_LOGIN = "IsLogin";
     public static User currentUser;
     public static Salon currentSalon;
     public static int step = 0;  // init first step is 0
+    public static String city = "";
 
     public static enum TOKEN_TYPE{
         CLIENT,

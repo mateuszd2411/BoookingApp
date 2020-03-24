@@ -22,6 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.mat.androidbarberbooking.Adapter.MySalonAdapter;
+import com.mat.androidbarberbooking.Common.Common;
 import com.mat.androidbarberbooking.Common.SpacesItemDecoration;
 import com.mat.androidbarberbooking.Interface.IAllSalonLoadListener;
 import com.mat.androidbarberbooking.Interface.IBranchLoadListener;
@@ -135,6 +136,8 @@ public class BookingStep1Fragment extends Fragment implements IAllSalonLoadListe
 
     private void loadBranchOfCity(String cityName) {
         dialog.show();
+
+        Common.city = cityName;
 
         branchRef = FirebaseFirestore.getInstance()
                 .collection("AllSalon")
