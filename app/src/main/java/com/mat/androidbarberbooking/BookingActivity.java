@@ -105,6 +105,9 @@ public class BookingActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int i) {
+
+                ///show step
+                stepView.go(i,true);
                 if (i == 0)
                     btn_previous_step.setEnabled(false);
                 else
