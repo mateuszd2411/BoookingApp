@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "128510497818",
+    "firebase_url": "https://text-recognition-app-8c406.firebaseio.com",
+    "project_id": "text-recognition-app-8c406",
+    "storage_bucket": "text-recognition-app-8c406.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128510497818:android:b37f1e036bbb4f9b4deda3",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128510497818-eekqbglj4r8hv96idqe6fo0l78ielbgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW3shlrLma-bWLvYJD6eQxhsCi5ZC6NrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128510497818-eekqbglj4r8hv96idqe6fo0l78ielbgr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128510497818:android:350ba115962c1b8b4deda3",
+        "android_client_info": {
+          "package_name": "com.example.facedetectionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128510497818-eekqbglj4r8hv96idqe6fo0l78ielbgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW3shlrLma-bWLvYJD6eQxhsCi5ZC6NrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128510497818-eekqbglj4r8hv96idqe6fo0l78ielbgr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128510497818:android:16fc1606617990bc4deda3",
+        "android_client_info": {
+          "package_name": "com.mat.androidbarberbooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128510497818-5mvdqhufteukr9u44pk36fiiokahfo99.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mat.androidbarberbooking",
+            "certificate_hash": "779ddfbc038eb3f3f31a60f50c34538ac917c59c"
+          }
+        },
+        {
+          "client_id": "128510497818-eekqbglj4r8hv96idqe6fo0l78ielbgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW3shlrLma-bWLvYJD6eQxhsCi5ZC6NrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128510497818-eekqbglj4r8hv96idqe6fo0l78ielbgr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
