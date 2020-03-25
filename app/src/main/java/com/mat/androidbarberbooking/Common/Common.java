@@ -12,7 +12,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mat.androidbarberbooking.Model.Barber;
 import com.mat.androidbarberbooking.Model.Salon;
+import com.mat.androidbarberbooking.Model.TimeSlot;
 import com.mat.androidbarberbooking.Model.User;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Common {
     public static final String KEY_ENABLE_BUTTON_NEXT = "ENABLE_BUTTON_NEXT";
@@ -22,12 +26,18 @@ public class Common {
     public static final String KEY_STEP = "STEP";
     public static final String KEY_BARBER_SELECTED = "BARBER_SELECTED";
     public static final int TIME_SLOT_TOTAL = 20;
+    public static final Object DISABLE_TAG = "DISABLE";
+    public static final String KEY_TIME_SLOT = "TIME_SLOT";
+    public static final String KEY_CONFIRM_BOOKING = "CONFIRM_BOOKING";
     public static String IS_LOGIN = "IsLogin";
     public static User currentUser;
     public static Salon currentSalon;
     public static int step = 0;  // init first step is 0
     public static String city = "";
     public static Barber currentBarber;
+    public static int currentTimeSlot = -1;
+    public static Calendar currentDate =Calendar.getInstance();
+    public static SimpleDateFormat simpleFormatDate = new SimpleDateFormat("dd_MM_yyyy");  ///only use when need format key
 
     public static String convertTimeSlotToString(int slot) {
         switch (slot)
