@@ -14,12 +14,18 @@ import com.mat.androidbarberbooking.Common.Common;
 import com.mat.androidbarberbooking.Model.TimeSlot;
 import com.mat.androidbarberbooking.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyTimeSlotAdapter extends RecyclerView.Adapter<MyTimeSlotAdapter.MyViewHolder> {
 
     Context context;
     List<TimeSlot> timeSlotList;
+
+    public MyTimeSlotAdapter(Context context) {
+        this.context = context;
+        this.timeSlotList = new ArrayList<>();
+    }
 
     public MyTimeSlotAdapter(Context context, List<TimeSlot> timeSlotList) {
         this.context = context;
