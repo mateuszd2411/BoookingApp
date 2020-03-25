@@ -10,6 +10,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.mat.androidbarberbooking.Model.Barber;
 import com.mat.androidbarberbooking.Model.Salon;
 import com.mat.androidbarberbooking.Model.User;
 
@@ -17,11 +18,15 @@ public class Common {
     public static final String KEY_ENABLE_BUTTON_NEXT = "ENABLE_BUTTON_NEXT";
     public static final String KEY_SALON_STORE = "SALON_SAVE";
     public static final String KEY_BARBER_LOAD_DONE = "KEY_BARBER_LOAD_DONE";
+    public static final String KEY_DISPLAY_TIME_SLOT = "DISPLAY_TIME_SLOT";
+    public static final String KEY_STEP = "STEP";
+    public static final String KEY_BARBER_SELECTED = "BARBER_SELECTED";
     public static String IS_LOGIN = "IsLogin";
     public static User currentUser;
     public static Salon currentSalon;
     public static int step = 0;  // init first step is 0
     public static String city = "";
+    public static Barber currentBarber;
 
     public static enum TOKEN_TYPE{
         CLIENT,
