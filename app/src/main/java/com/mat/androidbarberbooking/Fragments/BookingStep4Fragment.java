@@ -7,6 +7,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+
+
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -110,7 +112,7 @@ public class BookingStep4Fragment extends Fragment {
         bookingInformation.setSalonName(Common.currentSalon.getName());
         bookingInformation.setTime(new StringBuilder(Common.convertTimeSlotToString(Common.currentTimeSlot))
                 .append(" at ")
-                .append(simpleDateFormat.format(bookingDateWithourHouse.getTime())).toString());
+                .append(simpleDateFormat.format(Common.bookingDate.getTime())).toString());
         bookingInformation.setSlot(Long.valueOf(Common.currentTimeSlot));
 
         ///submit to barber document
@@ -265,7 +267,12 @@ public class BookingStep4Fragment extends Fragment {
             String timeZone = TimeZone.getDefault().getID();
             event.put(CalendarContract.Events.EVENT_TIMEZONE,timeZone);
 
-            Uri calendars = Uri.parse("content://com.android.calendar/calendars");
+            Uri calendars;
+            if (Build.VERSION.SDK_INT >= 8)
+                calendars = Uri.parse("content://com.android.calendar/events");
+            else
+                calendars = Uri.parse("content://calendar/events");
+
 
             getActivity().getContentResolver().insert(calendars,event);
 
