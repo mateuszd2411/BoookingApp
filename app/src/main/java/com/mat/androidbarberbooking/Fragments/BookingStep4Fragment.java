@@ -51,6 +51,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import dmax.dialog.SpotsDialog;
+import io.paperdb.Paper;
 
 public class BookingStep4Fragment extends Fragment {
 
@@ -156,8 +157,17 @@ public class BookingStep4Fragment extends Fragment {
                 .collection("Booking");
 
         ///check if exist document in this collection
-        userBooking.whereEqualTo("done",false) /// If any document with field done = false
-        .get()
+        ///get current date
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE,0);
+        calendar.set(Calendar.HOUR_OF_DAY,0);
+        calendar.set(Calendar.MINUTE,0);
+        Timestamp toDayTimeStamp = new Timestamp(calendar.getTime());
+        userBooking
+                .whereGreaterThanOrEqualTo("timestamp",toDayTimeStamp)
+                .whereEqualTo("done",false)
+                .limit(1)  /// only take 1
+                .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -227,6 +237,7 @@ public class BookingStep4Fragment extends Fragment {
 
         ///after we have startEvent and endEvent, convert it to format String
         SimpleDateFormat calendarDateFormat = new SimpleDateFormat("dd_MM_yyyy HH:mm");
+
         String startEventTime = calendarDateFormat.format(startEvent.getTime());
         String endEventTime = calendarDateFormat.format(endEvent.getTime());
 
@@ -274,7 +285,10 @@ public class BookingStep4Fragment extends Fragment {
                 calendars = Uri.parse("content://calendar/events");
 
 
-            getActivity().getContentResolver().insert(calendars,event);
+            Uri uri_save = getActivity().getContentResolver().insert(calendars,event);
+            ///save to cache
+            Paper.init(getActivity());
+            Paper.book().write(Common.EVENT_URI_CACHE,uri_save.toString());
 
         } catch (ParseException e) {
             e.printStackTrace();
