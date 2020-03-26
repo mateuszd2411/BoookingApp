@@ -127,25 +127,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        /////below dexter
 
-//        AccessToken accessToken = AccountKit.getCurrentAccessToken();
-//        if (accessToken != null)
-//        {
-//            Intent intent = new Intent(this, HomeActivity.class);
-//            intent.putExtra(Common.IS_LOGIN, true);
-//            startActivity(intent);
-//            finish();
-//        }
-//        else
-//        {
-//            setContentView(R.layout.activity_main);
-//            ButterKnife.bind(MainActivity.this);
-//        }
-
-
-
-
+///need to calendar
         Dexter.withActivity(this)
                 .withPermissions(new String[]{
                         Manifest.permission.READ_CALENDAR,
@@ -190,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+///need to calendar
 
     }
 
